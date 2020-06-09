@@ -12,7 +12,7 @@ the fine-tuning instability. We analyze BERT, RoBERTa, and ALBERT, finetuned on 
 
 ![](images/fig1.png)
 
-![](images/fig2.png)
+![](images/tab1.png)
 
 ## Reproducing our results
 
