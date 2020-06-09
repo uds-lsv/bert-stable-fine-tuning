@@ -12,7 +12,7 @@ cd bert-stable-fine-tuning/examples/bert_stable_fine_tuning
 3. Setup a Docker image and start a container. 
 
 ````
-docker build -f .Dockerfile --build-arg USER_UID=$UID --build-arg USER_NAME=$(id -un) -t bert-stable-fine-tuning:latest .
+docker build -f ./Dockerfile --build-arg USER_UID=$UID --build-arg USER_NAME=$(id -un) -t bert-stable-fine-tuning:latest .
 
 docker run -it --rm --runtime=nvidia --pid=host --ipc=host \
     -v /path/to/bert-stable-fine-tuning:/transformers \
