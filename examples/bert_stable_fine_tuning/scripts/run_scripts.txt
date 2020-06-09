@@ -1,0 +1,146 @@
+# Single GPU taining 
+# - run as follows (args: config file, seed, gpu)
+
+###################
+# CoLA
+###################
+
+#### default
+
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/cola/pooler-bert-large-uncased_bsz_16_lr_1e-05_adamW.yaml 11 25 1 
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/cola/pooler-bert-large-uncased_bsz_16_lr_2e-05_adamW.yaml 11 25 3 
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/cola/pooler-bert-large-uncased_bsz_16_lr_3e-05_adamW.yaml 11 25 5 
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/cola/pooler-bert-large-uncased_bsz_16_lr_5e-05_adamW.yaml 11 25 7 
+
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/cola/pooler-bert-large-uncased_bsz_16_lr_1e-05_adamW_early-stopping.yaml 1 25 0 
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/cola/pooler-bert-large-uncased_bsz_16_lr_2e-05_adamW_early-stopping.yaml 1 25 1 
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/cola/pooler-bert-large-uncased_bsz_16_lr_3e-05_adamW_early-stopping.yaml 1 25 2 
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/cola/pooler-bert-large-uncased_bsz_16_lr_5e-05_adamW_early-stopping.yaml 1 25 3 
+
+### bias correction
+
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/cola/pooler-bert-large-uncased_bsz_16_lr_1e-05_adamW_bias-correct.yaml 1 12 0 
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/cola/pooler-bert-large-uncased_bsz_16_lr_2e-05_adamW_bias-correct.yaml 1 12 6 
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/cola/pooler-bert-large-uncased_bsz_16_lr_3e-05_adamW_bias-correct.yaml 1 12 6 
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/cola/pooler-bert-large-uncased_bsz_16_lr_5e-05_adamW_bias-correct.yaml 1 12 6 
+
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/cola/pooler-bert-large-uncased_bsz_16_lr_1e-05_adamW_bias-correct_early-stopping.yaml 1 25 4 
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/cola/pooler-bert-large-uncased_bsz_16_lr_2e-05_adamW_bias-correct_early-stopping.yaml 1 25 5 
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/cola/pooler-bert-large-uncased_bsz_16_lr_3e-05_adamW_bias-correct_early-stopping.yaml 1 25 6 
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/cola/pooler-bert-large-uncased_bsz_16_lr_5e-05_adamW_bias-correct_early-stopping.yaml 1 25 7 
+
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/cola/pooler-bert-large-uncased_bsz_16_lr_1e-05_adamW_bias-correct_early-stopping_20.yaml 1 25 6 
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/cola/pooler-bert-large-uncased_bsz_16_lr_2e-05_adamW_bias-correct_early-stopping_20.yaml 1 25 7 
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/cola/pooler-bert-large-uncased_bsz_16_lr_3e-05_adamW_bias-correct_early-stopping_20.yaml 16 25 3 
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/cola/pooler-bert-large-uncased_bsz_16_lr_5e-05_adamW_bias-correct_early-stopping_20.yaml 16 25 5 
+
+
+#### sampled CoLA 
+
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/cola-sampled/pooler-bert-large-uncased_bsz_16_lr_2e-05_adamW.yaml 2 25 1 
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/cola-sampled/pooler-bert-large-uncased_bsz_16_lr_2e-05_adamW_full-steps.yaml 24 25 6
+
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/cola-sampled/pooler-bert-large-uncased_bsz_16_lr_2e-05_adamW_bias-correct.yaml 1 25 7 
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/cola-sampled/pooler-bert-large-uncased_bsz_16_lr_2e-05_adamW_bias-correct_full-steps.yaml 22 25 4 
+
+
+
+###################
+# MRPC
+###################
+
+#### default
+
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/mrpc/pooler-bert-large-uncased_bsz_16_lr_1e-05_adamW.yaml 1 25 1 
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/mrpc/pooler-bert-large-uncased_bsz_16_lr_2e-05_adamW.yaml 1 25 3 
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/mrpc/pooler-bert-large-uncased_bsz_16_lr_3e-05_adamW.yaml 1 25 5 
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/mrpc/pooler-bert-large-uncased_bsz_16_lr_5e-05_adamW.yaml 1 25 7 
+
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/mrpc/pooler-bert-large-uncased_bsz_16_lr_1e-05_adamW_early-stopping.yaml 1 25 1 
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/mrpc/pooler-bert-large-uncased_bsz_16_lr_2e-05_adamW_early-stopping.yaml 1 25 1 
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/mrpc/pooler-bert-large-uncased_bsz_16_lr_3e-05_adamW_early-stopping.yaml 1 25 1 
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/mrpc/pooler-bert-large-uncased_bsz_16_lr_5e-05_adamW_early-stopping.yaml 1 25 1 
+
+### bias correction
+
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/mrpc/pooler-bert-large-uncased_bsz_16_lr_1e-05_adamW_bias-correct.yaml 1 25 6 
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/mrpc/pooler-bert-large-uncased_bsz_16_lr_2e-05_adamW_bias-correct.yaml 1 25 6 
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/mrpc/pooler-bert-large-uncased_bsz_16_lr_3e-05_adamW_bias-correct.yaml 1 25 6 
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/mrpc/pooler-bert-large-uncased_bsz_16_lr_5e-05_adamW_bias-correct.yaml 1 25 6 
+
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/mrpc/pooler-bert-large-uncased_bsz_16_lr_1e-05_adamW_bias-correct_early-stopping.yaml 1 25 0 
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/mrpc/pooler-bert-large-uncased_bsz_16_lr_2e-05_adamW_bias-correct_early-stopping.yaml 1 25 0 
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/mrpc/pooler-bert-large-uncased_bsz_16_lr_3e-05_adamW_bias-correct_early-stopping.yaml 1 25 0 
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/mrpc/pooler-bert-large-uncased_bsz_16_lr_5e-05_adamW_bias-correct_early-stopping.yaml 1 25 0 
+
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/mrpc/pooler-bert-large-uncased_bsz_16_lr_1e-05_adamW_bias-correct_early-stopping_20.yaml 1 25 3 
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/mrpc/pooler-bert-large-uncased_bsz_16_lr_2e-05_adamW_bias-correct_early-stopping_20.yaml 1 25 4  
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/mrpc/pooler-bert-large-uncased_bsz_16_lr_3e-05_adamW_bias-correct_early-stopping_20.yaml 1 25 5 
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/mrpc/pooler-bert-large-uncased_bsz_16_lr_5e-05_adamW_bias-correct_early-stopping_20.yaml 11 25 1 
+
+
+#### sampled MRPC 
+
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/mrpc-sampled/pooler-bert-large-uncased_bsz_16_lr_2e-05_adamW.yaml 2 25 5 
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/mrpc-sampled/pooler-bert-large-uncased_bsz_16_lr_2e-05_adamW_full-steps.yaml 2 25 4 
+
+
+###################
+# RTE
+###################
+
+#### default
+
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/rte/pooler-bert-large-uncased_bsz_16_lr_1e-05_adamW.yaml 11 25 1 
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/rte/pooler-bert-large-uncased_bsz_16_lr_2e-05_adamW.yaml 11 25 3 
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/rte/pooler-bert-large-uncased_bsz_16_lr_3e-05_adamW.yaml 11 25 5 
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/rte/pooler-bert-large-uncased_bsz_16_lr_5e-05_adamW.yaml 11 25 7 
+
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/rte/pooler-bert-large-uncased_bsz_16_lr_1e-05_adamW_early-stopping.yaml 2 25 0 
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/rte/pooler-bert-large-uncased_bsz_16_lr_2e-05_adamW_early-stopping.yaml 1 25 2 
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/rte/pooler-bert-large-uncased_bsz_16_lr_3e-05_adamW_early-stopping.yaml 1 25 6 
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/rte/pooler-bert-large-uncased_bsz_16_lr_5e-05_adamW_early-stopping.yaml 1 25 4 
+
+### bias correction
+
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/rte/pooler-bert-large-uncased_bsz_16_lr_1e-05_adamW_bias-correct.yaml 1 1 0 
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/rte/pooler-bert-large-uncased_bsz_16_lr_2e-05_adamW_bias-correct.yaml 13 25 6 
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/rte/pooler-bert-large-uncased_bsz_16_lr_3e-05_adamW_bias-correct.yaml 13 25 3 
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/rte/pooler-bert-large-uncased_bsz_16_lr_5e-05_adamW_bias-correct.yaml 13 25 5 
+
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/rte/pooler-bert-large-uncased_bsz_16_lr_1e-05_adamW_bias-correct_early-stopping.yaml 2 25 1 
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/rte/pooler-bert-large-uncased_bsz_16_lr_2e-05_adamW_bias-correct_early-stopping.yaml 1 25 7 
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/rte/pooler-bert-large-uncased_bsz_16_lr_3e-05_adamW_bias-correct_early-stopping.yaml 1 25 5 
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/rte/pooler-bert-large-uncased_bsz_16_lr_5e-05_adamW_bias-correct_early-stopping.yaml 1 25 3 
+
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/rte/pooler-bert-large-uncased_bsz_16_lr_1e-05_adamW_bias-correct_early-stopping_20.yaml 1 25 0 
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/rte/pooler-bert-large-uncased_bsz_16_lr_2e-05_adamW_bias-correct_early-stopping_20.yaml 1 25 1  
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/rte/pooler-bert-large-uncased_bsz_16_lr_3e-05_adamW_bias-correct_early-stopping_20.yaml 1 25 2 
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/rte/pooler-bert-large-uncased_bsz_16_lr_5e-05_adamW_bias-correct_early-stopping_20.yaml 16 25 0 
+
+
+#### sampled RTE 
+
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/rte-sampled/pooler-bert-large-uncased_bsz_16_lr_2e-05_adamW.yaml 1 25 7 
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/rte-sampled/pooler-bert-large-uncased_bsz_16_lr_2e-05_adamW_full-steps.yaml 1 25 6 
+
+
+#### RoBERTa & ALBERT
+
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/rte/pooler-roberta-large_bsz_16_lr_1e-05_adamW.yaml 2 25 0 
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/rte/pooler-roberta-large_bsz_16_lr_2e-05_adamW.yaml 13 25 1 
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/rte/pooler-roberta-large_bsz_16_lr_3e-05_adamW.yaml 2 25 2 
+
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/rte/pooler-roberta-large_bsz_16_lr_1e-05_adamW_bias-correct.yaml 1 25 3 
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/rte/pooler-roberta-large_bsz_16_lr_2e-05_adamW_bias-correct.yaml 13 25 3 
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/rte/pooler-roberta-large_bsz_16_lr_3e-05_adamW_bias-correct.yaml 1 25 4 
+
+
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/rte/pooler-albert-large-v2_bsz_16_lr_1e-05_adamW.yaml 2 25 5 
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/rte/pooler-albert-large-v2_bsz_16_lr_2e-05_adamW.yaml 13 25 5 
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/rte/pooler-albert-large-v2_bsz_16_lr_3e-05_adamW.yaml 2 25 6 
+
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/rte/pooler-albert-large-v2_bsz_16_lr_1e-05_adamW_bias-correct.yaml 2 25 7 
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/rte/pooler-albert-large-v2_bsz_16_lr_2e-05_adamW_bias-correct.yaml 13 25 7 
+bash /transformers/examples/bert_stable_fine_tuning/scripts/seeds.sh /transformers/examples/bert_stable_fine_tuning/configs/rte/pooler-albert-large-v2_bsz_16_lr_3e-05_adamW_bias-correct.yaml 1 25 1 
+

@@ -1,0 +1,21 @@
+# Single GPU taining 
+# - run as follows (args: config file, seed, gpu)
+
+# For SQUAD v2.0 make sure to set 'version_2_with_negative' to true in config file and change dirs accordingly
+
+# SQUAD v1.1/v2.0
+bash /transformers/examples/squad/scripts/train.sh /transformers/examples/squad/configs/bert-base-cased.yaml 123 7
+bash /transformers/examples/squad/scripts/train.sh /transformers/examples/squad/configs/albert-base-v1.yaml 123 7
+bash /transformers/examples/squad/scripts/train.sh /transformers/examples/squad/configs/roberta-base.yaml 123 7
+
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+# Multi GPU taining 
+# - run as follows (args: config file, seed, n_gpus, list_of_gpus)
+# - make sure to adjust config files accordingly 
+
+# SQUAD v1.1/v2-0
+bash /transformers/examples/squad/scripts/train_multi_gpu.sh /transformers/examples/squad/configs/bert-base-cased.yaml 123 4 4,5,6,7
+bash /transformers/examples/squad/scripts/train_multi_gpu.sh /transformers/examples/squad/configs/albert-base-v1.yaml 123 4 4,5,6,7
+bash /transformers/examples/squad/scripts/train_multi_gpu.sh /transformers/examples/squad/configs/roberta-base.yaml 123 4 4,5,6,7

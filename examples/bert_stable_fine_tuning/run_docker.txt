@@ -1,0 +1,28 @@
+# Build docker image from docker file (using latest base PyTorch image from NVIDIA GPU Cloud)
+docker build -f .Dockerfile --build-arg USER_UID=$UID --build-arg USER_NAME=$(id -un) -t bert-stable-fine-tuning:latest .
+
+
+# Launch docker container from docker image as root
+# add --user=<username> to run as user <username>
+# /path/to/pre-trained-transformers is a dir that holds the downloaded weights for the pre-trained models 
+
+docker run -it --rm --runtime=nvidia --pid=host --ipc=host \
+    -v /path/to/bert-stable-fine-tuning:/transformers \
+    -v /path/to/pre-trained-transformers:/pre-trained-transformers \
+    -v /path/to/datasets:/datasets \
+    -v /path/to/bert-stable-fine-tuning/logfiles:/logfiles \
+    -v /path/to/bert-stable-fine-tuning/checkpoints:/checkpoints \
+    -v /path/to/bert-stable-fine-tuning/tb-logs:/tb-logs \
+    -v /path/to/bert-stable-fine-tuning/wandb-logs:/wandb-logs \
+    bert-stable-fine-tuning:latest
+
+
+# For latest docker version (starting from 19.03) use:
+# --gpus=all instead of --runtime=nvidia
+
+######################################
+# Make huggingface transformers editable inside container
+######################################
+
+export PYTHONPATH="$PYTHONPATH:/transformers"
+python3 -m pip install -e . --user

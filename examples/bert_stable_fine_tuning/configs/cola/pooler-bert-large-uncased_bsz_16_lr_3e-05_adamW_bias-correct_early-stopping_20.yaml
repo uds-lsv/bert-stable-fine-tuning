@@ -1,0 +1,73 @@
+input:
+  task_name: cola
+  data_dir: /datasets/GLUE/cola
+  overwrite_cache: false # Overwrite the cached training and evaluation sets
+
+output:
+  log_dir: /logfiles/stable-fine-tuning/cola
+  checkpoint_dir: /checkpoints/stable-fine-tuning/cola
+
+tensorboard:
+  enable: false
+  log_dir: /tb-logs/stable-fine-tuning/cola
+  log_histograms: false # Log histograms in tensorboard. They can be quite large (file size) and slow down training. So one might want to disable it
+  stop_after: 1 # when logging histograms stop after stop_after steps. Leave empty if log until end of training.
+
+wandb:
+  enable: false
+  project_name: stable-fine-tuning
+  log_dir: /wandb-logs/stable-fine-tuning/cola
+  log_histograms: false # Log histograms in wandb. They can be quite large (file size) and slow down training. So one might want to disable it
+  stop_after: 1 # when logging histograms stop after stop_after steps. Leave empty if log until end of training.
+
+model:
+  model_type: pooler-bert
+  model_name_or_path: bert-large-uncased # Path to pre-trained model or shortcut name of huggingface transformer models
+  config_name: bert-large-uncased # Pretrained config name or path if not the same as model_name
+  tokenizer_name: bert-large-uncased # Pretrained tokenizer name or path if not the same as model_name
+  cache_dir: /pre-trained-transformers
+  do_lower_case: true
+  max_seq_length: 128
+  pooler: cls
+  re_init_pooler: false
+  distribution: none # select distribution in {normal, uniform, none}. Use none only when re_init_pooler == False
+  bound: 0.03125 # bound to use when distribution == uniform and re_init_pooler == True, default is 1/sqrt(hidden_dim) (768 for base and 1024 for large models)
+  std: 0.02 # std to use when distribution == normal and re_init_pooler == True, default is 0.02
+  pooler_dropout: false # use dropout in CLS pooler, BERT default is false
+  pooler_activation: tanh # select activation in {tanh, gelu, relu}
+  pooler_layer_norm: false # apply LayerNorm to pooler pre-activations, BERT default is false
+  hidden_dropout_prob: 0.1 # BERT default is 0.1
+  attention_probs_dropout_prob: 0.1 # BERT default is 0.1
+  classifier_dropout_prob: 0.1 # BERT default is 0.1
+  classifier_init_std: 0.02 # BERT default is 0.02
+
+training:
+  num_train_epochs: 20 # BERT default is 3 epochs
+  max_steps: -1 # overrides num_train_epochs
+  evaluate_during_training: true
+  per_gpu_train_batch_size: 16
+  gradient_accumulation_steps: 1
+  train_logging_steps: 10
+  eval_logging_steps: 178 # with batch_size 16 we have 534 iterations per epoch, we evaluate 3x per epoch
+  save_steps: -1
+  early_stopping: true # BERT default is false
+  early_stopping_metric: mcc # select based on the task
+
+optimizer:
+  name: adamW
+  correct_bias: true # BERT default is false
+  learning_rate: 0.00003 # learning-rate should not be too large, select from {1e-5, 2e-5, 3e-5}
+  learning_rate_schedule: warmup-linear # BERT default is warmup-linear
+  warmup_steps: 0.1 # BERT default is 10% of total steps during fine-tuning
+  weight_decay: 0.01 # BERT default is 0.01
+  adam_epsilon: 0.000001 # BERT default is 1e-6, hf default is 1e-8
+  adam_beta1: 0.9 # BERT default is 0.9
+  adam_beta2: 0.999 # BERT default is 0.999
+  max_grad_norm: 1.0 # BERT default is 1.0
+  local_normalization: false # BERT default is false
+  fp16: false
+  fp16_opt_level: "01" # If fp16: Apex AMP optimization level selected in ['O0', 'O1', 'O2', and 'O3']. See details at https://nvidia.github.io/apex/amp.html
+
+eval:
+  eval_all_checkpoints: false
+  per_gpu_eval_batch_size: 100

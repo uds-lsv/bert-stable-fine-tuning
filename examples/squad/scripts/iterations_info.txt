@@ -1,0 +1,24 @@
+# SQUAD v1.1
+
+## Single GPU training
+
+batch_size  iterations
+2   44432
+4   22216
+6   14811
+8   11108
+16  5554    # this is the largest batch size that fits on a P100 with base models (of course it also depends on max_seq_len)
+24  3703
+32  2777
+
+## Multi GPU training
+
+gpus    batch_size_per_gpu  total_batch_size    iterations_per_gpu
+2   8   16  5554
+4   8   32  2777
+
+# SQUAD v2.0
+
+## Single GPU training
+
+## Multi GPU training
